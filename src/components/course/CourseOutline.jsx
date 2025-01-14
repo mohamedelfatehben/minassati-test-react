@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import RadiusComponent from "../common/RadiusComponent";
 import { IoMdPersonAdd } from "react-icons/io";
 import { RiGroupLine } from "react-icons/ri";
@@ -76,14 +76,17 @@ const CourseOutline = () => {
                 {/* Section Header */}
                 <button
                   onClick={() => toggleSection(sectionIndex)}
-                  className="w-full flex justify-between items-center px-4 py-3 rounded-lg bg-gray-50"
+                  className="w-full flex justify-between items-center px-4 py-3 rounded-lg shadow"
                 >
                   <div className="flex items-center gap-x-2">
-                    {openSection === sectionIndex ? (
-                      <FaChevronUp />
-                    ) : (
-                      <FaChevronDown />
-                    )}
+                    {/* Arrow Animation */}
+                    <div
+                      className={`transition-transform duration-300 ${
+                        openSection === sectionIndex ? "rotate-180" : "rotate-0"
+                      }`}
+                    >
+                      <FaChevronDown />{" "}
+                    </div>
                     <span className="font-medium">{section.title}</span>
                   </div>
                   <div className="flex items-center gap-x-4">
@@ -101,11 +104,19 @@ const CourseOutline = () => {
                     </span>
                   </div>
                 </button>
+
                 {/* Section Lessons */}
-                {openSection === sectionIndex && (
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openSection === sectionIndex
+                      ? "max-h-screen opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
                   <div className="mt-2">
                     {section.lessons.map((lesson, lessonIndex) => (
                       <div key={lessonIndex} className="mb-4">
+                        {/* Lesson Header */}
                         <button
                           onClick={() =>
                             toggleLesson(`${sectionIndex}-${lessonIndex}`)
@@ -113,11 +124,16 @@ const CourseOutline = () => {
                           className="w-full flex justify-between items-center px-4 py-2 rounded-lg "
                         >
                           <div className="flex items-center gap-x-2">
-                            {openLesson === `${sectionIndex}-${lessonIndex}` ? (
-                              <FaChevronUp />
-                            ) : (
+                            {/* Arrow Animation for Lesson */}
+                            <div
+                              className={`transition-transform duration-300 ${
+                                openLesson === `${sectionIndex}-${lessonIndex}`
+                                  ? "rotate-180"
+                                  : "rotate-0"
+                              }`}
+                            >
                               <FaChevronDown />
-                            )}
+                            </div>
                             <span className="text-sm font-medium">
                               {lesson.title}
                             </span>
@@ -137,9 +153,10 @@ const CourseOutline = () => {
                             </span>
                           </div>
                         </button>
+
                         {/* Lesson Videos */}
                         {openLesson === `${sectionIndex}-${lessonIndex}` && (
-                          <ol className="mt-2 px-4 text-sm text-gray-600">
+                          <ul className="mt-2 px-4 text-sm text-gray-600 list-decimal">
                             {lesson.videos.map((video, videoIndex) => (
                               <li
                                 key={videoIndex}
@@ -154,12 +171,12 @@ const CourseOutline = () => {
                                 </span>
                               </li>
                             ))}
-                          </ol>
+                          </ul>
                         )}
                       </div>
                     ))}
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

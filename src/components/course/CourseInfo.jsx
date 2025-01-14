@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import RadiusComponent from "../common/RadiusComponent";
+import { FaChevronDown } from "react-icons/fa";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import RadiusComponent from "../common/RadiusComponent";
 
 // Course Info Component
 const CourseInfo = () => {
@@ -44,11 +44,11 @@ const CourseInfo = () => {
         />
         <div className="flex flex-col gap-y-4 px-6">
           {infoSections.map((section, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-4 shadow-sm">
+            <div key={index} className="rounded-lg shadow-md">
               {/* Section Header */}
               <button
                 onClick={() => toggleSection(index)}
-                className="w-full flex justify-between items-center"
+                className="w-full flex justify-between items-center p-4"
               >
                 <div className="flex items-center gap-x-2">
                   <IoInformationCircleOutline className="text-xl" />
@@ -56,24 +56,30 @@ const CourseInfo = () => {
                     {section.title}
                   </span>
                 </div>
-                <div>
-                  {openSection === index ? (
-                    <FaChevronUp className="text-gray-500" />
-                  ) : (
-                    <FaChevronDown className="text-gray-500" />
-                  )}
+                <div
+                  className={`text-gray-500 transition-transform duration-300 transform ${
+                    openSection === index ? "rotate-180" : "rotate-0"
+                  }`}
+                >
+                  <FaChevronDown />
                 </div>
               </button>
               {/* Section Content */}
-              {openSection === index && (
-                <ul className="mt-3 pl-6 text-sm text-gray-600">
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openSection === index
+                    ? "max-h-screen opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <ul className="mt-3 text-sm text-gray-600 p-4">
                   {section.content.map((item, i) => (
                     <li key={i} className="mb-1">
                       - {item}
                     </li>
                   ))}
                 </ul>
-              )}
+              </div>
             </div>
           ))}
         </div>
