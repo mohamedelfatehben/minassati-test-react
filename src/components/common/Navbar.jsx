@@ -61,11 +61,14 @@ const Navbar = () => {
             <>
               <Link
                 to={link.path}
-                className={`text-lg text-center md:text-start`}
-                style={{
-                  color:
-                    location.pathname === link.path ? secondary_color : "black",
+                onClick={() => {
+                  if (isMenuOpen) setIsMenuOpen(false);
                 }}
+                className={`text-lg text-center md:text-start hover:text-yellow-500 ${
+                  location.pathname === link.path
+                    ? "text-[" + secondary_color + "]"
+                    : "text-black md:text-white"
+                }`}
               >
                 {link.name}
               </Link>
