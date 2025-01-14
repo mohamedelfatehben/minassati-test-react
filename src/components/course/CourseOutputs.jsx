@@ -7,7 +7,7 @@ function CourseOutputs({ outputs }) {
     appSettings;
   return (
     <div className="flex justify-center bg-white p-16 w-screen">
-      <div className="content grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div className="content text-center md:text-start grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Outputs Section */}
         <div className="">
           <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-800">
@@ -18,18 +18,18 @@ function CourseOutputs({ outputs }) {
               <li
                 key={index}
                 style={{ backgroundColor: primary_color }}
-                className="flex items-start gap-4 p-4 rounded-3xl"
+                className="flex flex-col md:flex-row text-center md:text-start items-start gap-4 p-4 rounded-3xl"
               >
                 {/* Icon */}
                 <div
                   style={{ color: secondary_color }}
-                  className="flex-shrink-0 text-2xl"
+                  className="flex-shrink-0 mx-auto md:mr-0 text-2xl md:text-5xl "
                 >
                   <FaStar />
                 </div>
 
                 {/* Content */}
-                <div>
+                <div className="w-full">
                   <h3 className="text-lg font-semibold mb-2">{output.title}</h3>
                   <p className="text-sm">{output.description}</p>
                 </div>

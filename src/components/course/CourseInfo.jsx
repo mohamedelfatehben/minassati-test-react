@@ -52,7 +52,7 @@ const CourseInfo = () => {
               >
                 <div className="flex items-center gap-x-2">
                   <IoInformationCircleOutline className="text-xl" />
-                  <span className="font-semibold text-gray-800 text-xl">
+                  <span className="font-semibold text-gray-800 text-base md:text-xl">
                     {section.title}
                   </span>
                 </div>

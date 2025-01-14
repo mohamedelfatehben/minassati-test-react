@@ -16,7 +16,7 @@ const FooterSection = () => {
     appSettings;
 
   return (
-    <footer className="text-white">
+    <footer className="text-white text-center md:text-start">
       {/* Top Section */}
       <div style={{ backgroundColor: primary_color }} className="px-6 py-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 pb-6">
@@ -114,7 +114,7 @@ const FooterSection = () => {
       >
         <p> جميع الحقوق محفوظة لدى HoskaDev © 2024.</p>
         <div>
-          <img src="trusted.png" alt="Trusted By Hoska" className="inline" />
+          <img src="/trusted.png" alt="Trusted By Hoska" className="inline" />
         </div>
       </div>
     </footer>

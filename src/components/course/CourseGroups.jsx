@@ -14,7 +14,7 @@ const CourseGroups = () => {
     <div className="bg-white rounded-3xl shadow-md w-full max-w-md z-50">
       <RadiusComponent
         content={
-          <span className="flex gap-x-2 text-2xl">
+          <span className="flex gap-x-2 text-lg md:text-2xl">
             <IoMdPersonAdd />
             <span> التسجيل في الدورة</span>
           </span>
@@ -22,16 +22,14 @@ const CourseGroups = () => {
         background={secondary_color}
       />
       {/* Header */}
-      <div className="flex items-center justify-between mb-4 text-xl font-bold px-4">
-        المجموعات المتوفرة
-      </div>
+      <div className="mb-4  md:text-xl font-bold px-4">المجموعات المتوفرة</div>
 
       {/* Groups */}
       <div className="flex flex-col gap-y-4 px-4">
         {[1, 2, 3].map((group, index) => (
           <div
             key={index}
-            className="flex items-center justify-between shadow p-4 rounded-3xl"
+            className="flex flex-col gap-y-2 md:flex-row items-center justify-between shadow p-4 rounded-3xl"
           >
             {/* Group Info */}
             <div className="text-gray-700 flex gap-x-2">

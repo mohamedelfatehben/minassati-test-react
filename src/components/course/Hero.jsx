@@ -24,8 +24,8 @@ const CourseHeroSection = ({ course }) => {
 
       {/* Course Content */}
       {course && (
-        <div className="content flex items-center justify-between px-8 lg:px-16 w-full mt-14">
-          <div className="relative z-10 text-white max-w-3xl">
+        <div className="content flex flex-col gap-y-10 md:flex-row items-center justify-center md:justify-between px-8 lg:px-16 w-full my-24  md:mt-16">
+          <div className="relative z-10 text-white max-w-3xl text-center md:text-start">
             {/* Trending Badge */}
             <div className="flex gap-x-2 items-center mb-4">
               <div className="bg-red-500 rounded-full text-white text-sm px-4 py-1 flex gap-x-2 items-center w-fit">
@@ -53,29 +53,29 @@ const CourseHeroSection = ({ course }) => {
 
             {/* Course Details */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <div className="flex items-center gap-2">
+              <div className="flex justify-center md:justify-start items-center gap-2">
                 <img src="/type.png" alt="Type" className="h-6 w-6" />
                 <span>
                   نمط الدورة : {course.details.specifications.course_type}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex justify-center md:justify-start items-center gap-2">
                 <img src="/language.png" alt="Type" className="h-6 w-6" />
                 <span>
                   اللغة : {course.details.specifications.course_language}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex justify-center md:justify-start items-center gap-2">
                 <img src="/duration.png" alt="Duration" className="h-6 w-6" />
                 <span>{course.details.specifications.course_duration}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex justify-center md:justify-start items-center gap-2">
                 <img src="/begin.png" alt="Lessons" className="h-6 w-6" />
                 <span>
                   بداية الدورة : {course.details.specifications.course_begin}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex justify-center md:justify-start items-center gap-2">
                 <img
                   src="/certificate.png"
                   alt="Certificate"
@@ -86,7 +86,7 @@ const CourseHeroSection = ({ course }) => {
             </div>
 
             {/* Course Price */}
-            <div className="mb-6 flex gap-x-4 items-center text-3xl font-bold">
+            <div className="mb-6 flex gap-x-4 items-center justify-center md:justify-start text-3xl font-bold">
               <span style={{ color: secondary_color }}>
                 {course.basic_info.course_discounted_price} دج
               </span>

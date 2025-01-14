@@ -47,7 +47,7 @@ const CourseCard = ({
   };
 
   return (
-    <div className="max-w-sm bg-white rounded-3xl shadow-md overflow-hidden border border-gray-200">
+    <div className="max-w-sm bg-white rounded-3xl shadow-md overflow-hidden border border-gray-200 text-center sm:text-start">
       {/* Course Image */}
       <img src={image} alt={name} className="w-full h-48 object-cover" />
 
@@ -58,15 +58,19 @@ const CourseCard = ({
         <p className="text-sm text-gray-600 mt-1">{`الأستاذ ${course_instructor}`}</p>
 
         {/* Ratings */}
-        <div className="flex items-center text-sm mt-2">
-          <span className="font-semibold text-yellow-500">{course_rating}</span>
-          <span className="ml-2">{renderStars()}</span>
+        <div className="flex flex-col sm:flex-row items-center text-sm mt-2">
+          <div className="flex gap-x-1">
+            <span className="font-semibold text-yellow-500">
+              {course_rating}
+            </span>
+            <span className="ml-2">{renderStars()}</span>
+          </div>
           <span className="text-gray-400 ml-2">
             | ({course_number_of_ratings} تقييم)
           </span>
         </div>
 
-        <div className="flex justify-between items-center mt-2">
+        <div className="flex flex-col sm:flex-row gap-y-2 justify-center sm:justify-between items-center mt-2">
           {/* Info  */}
           <div className="flex items-center gap-x-2 text-black font-medium text-sm mt-3">
             <div className="flex items-center gap-1">

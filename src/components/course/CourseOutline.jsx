@@ -76,7 +76,7 @@ const CourseOutline = () => {
                 {/* Section Header */}
                 <button
                   onClick={() => toggleSection(sectionIndex)}
-                  className="w-full flex justify-between items-center px-4 py-3 rounded-lg shadow"
+                  className="w-full flex flex-col md:flex-row justify-center gap-y-2 md:justify-between items-center px-4 py-3 rounded-lg shadow"
                 >
                   <div className="flex items-center gap-x-2">
                     {/* Arrow Animation */}
@@ -91,13 +91,13 @@ const CourseOutline = () => {
                   </div>
                   <div className="flex items-center gap-x-4">
                     <span
-                      className="px-2 py-1 text-sm text-white rounded-3xl"
+                      className="px-2 py-1 text-xs md:text-sm text-white rounded-3xl"
                       style={{ backgroundColor: primary_color_light }}
                     >
                       {totalVideos} فيديوهات
                     </span>
                     <span
-                      className="px-2 py-1 text-sm text-white rounded-3xl"
+                      className="px-2 py-1 text-xs md:text-sm text-white rounded-3xl"
                       style={{ backgroundColor: primary_color }}
                     >
                       {section.totalDuration}
@@ -113,7 +113,7 @@ const CourseOutline = () => {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="mt-2">
+                  <div className="mt-2 bg-gray-100">
                     {section.lessons.map((lesson, lessonIndex) => (
                       <div key={lessonIndex} className="mb-4">
                         {/* Lesson Header */}
@@ -121,7 +121,7 @@ const CourseOutline = () => {
                           onClick={() =>
                             toggleLesson(`${sectionIndex}-${lessonIndex}`)
                           }
-                          className="w-full flex justify-between items-center px-4 py-2 rounded-lg "
+                          className="w-full flex flex-col md:flex-row justify-center gap-y-2 md:justify-between items-center px-4 py-2 rounded-lg "
                         >
                           <div className="flex items-center gap-x-2">
                             {/* Arrow Animation for Lesson */}
@@ -140,13 +140,13 @@ const CourseOutline = () => {
                           </div>
                           <div className="flex items-center gap-x-4">
                             <span
-                              className="px-2 py-1 text-xs text-white rounded-3xl"
+                              className="px-2 py-1 text-xs md:text-xs text-white rounded-3xl"
                               style={{ backgroundColor: primary_color_light }}
                             >
                               {lesson.videos.length} فيديوهات
                             </span>
                             <span
-                              className="px-2 py-1 text-xs text-white rounded-3xl"
+                              className="px-2 py-1 text-xs md:text-xs text-white rounded-3xl"
                               style={{ backgroundColor: primary_color }}
                             >
                               {lesson.totalDuration}
@@ -160,7 +160,7 @@ const CourseOutline = () => {
                             {lesson.videos.map((video, videoIndex) => (
                               <li
                                 key={videoIndex}
-                                className="flex justify-between items-center mb-2"
+                                className="flex flex-col md:flex-row justify-center gap-y-2 md:justify-between items-center mb-2"
                               >
                                 <span>- {video.title}</span>
                                 <span
@@ -182,17 +182,17 @@ const CourseOutline = () => {
           })}
         </div>
 
-        <div className="flex items-center justify-center gap-x-4 mt-6">
+        <div className="flex items-center flex-col md:flex-row gap-y-2 justify-center gap-x-4 mt-6">
           <button
             style={{ backgroundColor: secondary_color }}
-            className="rounded-full text-white px-6 py-3 flex gap-x-2 items-center text-2xl font-bold"
+            className="rounded-full text-white px-6 py-3 flex gap-x-2 items-center text-lg md:text-2xl font-bold"
           >
             <IoMdPersonAdd />
             <span>سجل الأن</span>
           </button>
           <button
             style={{ backgroundColor: primary_color }}
-            className="rounded-full text-white px-6 py-3 flex gap-x-2 items-center text-2xl font-bold"
+            className="rounded-full text-white px-6 py-3 flex gap-x-2 items-center text-lg md:text-2xl font-bold"
           >
             <RiGroupLine />
             <span>تسجيل جماعي</span>

@@ -48,9 +48,9 @@ const HeroSection = ({ courses }) => {
 
       {/* Course Content */}
       {courses.length > 0 && (
-        <div className="content flex justify-center items-center">
+        <div className="content flex justify-center items-center text-center sm:text-start">
           <div className="relative z-10 text-white px-16 max-w-3xl">
-            <span className="bg-red-500 rounded-full text-white text-sm px-4 py-1 flex gap-x-2 items-center w-fit">
+            <span className="bg-red-500 rounded-full text-white text-sm px-4 py-1 flex gap-x-2 items-center w-fit mx-auto sm:mr-0">
               <img
                 src="/trending.png"
                 alt="Trending icon"
