@@ -24,7 +24,7 @@ const CourseHeroSection = ({ course }) => {
 
       {/* Course Content */}
       {course && (
-        <div className="content flex items-center justify-between px-8 lg:px-16 w-full">
+        <div className="content flex items-center justify-between px-8 lg:px-16 w-full mt-14">
           <div className="relative z-10 text-white max-w-3xl">
             {/* Trending Badge */}
             <div className="flex gap-x-2 items-center mb-4">
