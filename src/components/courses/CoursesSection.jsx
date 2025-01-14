@@ -7,6 +7,8 @@ import { FaSearch } from "react-icons/fa";
 
 const CoursesSection = ({ courses }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const appSettings = JSON.parse(localStorage.getItem("app_settings")) || {};
+  const { primary_color = "#32227E" } = appSettings;
 
   // Images array
   const courseImages = ["/image-1.png", "/image-2.jpg", "/image-3.png"];
@@ -18,6 +20,7 @@ const CoursesSection = ({ courses }) => {
         <div className="flex justify-between mb-6">
           <RadiusComponent
             content={<h1 className="text-xl font-bold">جميع الدورات</h1>}
+            background={primary_color}
           />
           <div className="flex gap-x-2  items-center p-3">
             <Input

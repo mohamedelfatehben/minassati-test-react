@@ -6,6 +6,7 @@ import { IoMdStarOutline } from "react-icons/io";
 
 import RadiusComponent from "../common/RadiusComponent";
 import { PiVideoLight } from "react-icons/pi";
+import LevelComponent from "../common/LevelComponent";
 
 const CourseCard = ({
   name,
@@ -20,15 +21,8 @@ const CourseCard = ({
   id,
   image,
 }) => {
-  console.log(course_rating);
-  // Map levels to color and icon bars
-  const levelData = {
-    مبتدئ: { color: "bg-green-500", bars: [true, false, false] },
-    متوسط: { color: "bg-yellow-500", bars: [true, true, false] },
-    متقدم: { color: "bg-red-500", bars: [true, true, true] },
-    "جميع المستويات": { color: "bg-purple-500", bars: [true, true, true] },
-  };
-
+  const appSettings = JSON.parse(localStorage.getItem("app_settings")) || {};
+  const { primary_color = "#32227E" } = appSettings;
   // Render star ratings
   const renderStars = () => {
     const fullStars = Math.floor(course_rating);
@@ -88,29 +82,7 @@ const CourseCard = ({
               <span>{course_lessons} درس</span>
             </div>
           </div>
-
-          {/* Level Indicator */}
-          <div
-            className={`flex items-center gap-1 rounded-full px-2 ${
-              levelData[course_level]?.color || "bg-gray-400"
-            }`}
-          >
-            {levelData[course_level]?.bars.map((isFilled, idx) => (
-              <div
-                key={idx}
-                className={`w-2 border border-white h-fit ${
-                  !isFilled ? "bg-transparent" : "bg-white"
-                }`}
-                style={{
-                  height: `${(idx + 1) * 4}px`, // Dynamically calculate height in pixels
-                  borderWidth: "1.5px",
-                }}
-              ></div>
-            ))}
-            <span className={`ml-2 py-1 text-sm text-white`}>
-              {course_level}
-            </span>
-          </div>
+          <LevelComponent course_level={course_level} />
         </div>
 
         {/* Price  */}
@@ -134,6 +106,7 @@ const CourseCard = ({
         </span>
         <RadiusComponent
           content={<a href={`/courses/${id}`}>التفاصيل . . .</a>}
+          background={primary_color}
         />
       </div>
     </div>
